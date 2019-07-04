@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lanssmaker.controller.LogPaneController">
     <children>
         <GridPane alignment="CENTER" prefHeight="186.0" prefWidth="389.0" AnchorPane.bottomAnchor="0.0"
                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">

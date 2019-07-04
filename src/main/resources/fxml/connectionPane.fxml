@@ -3,7 +3,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lanssmaker.controller.ConnectionPaneController">
     <children>
         <TableView prefHeight="389.0" prefWidth="378.0" AnchorPane.bottomAnchor="0.0"
                    AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
