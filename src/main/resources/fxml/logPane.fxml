@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<AnchorPane HBox.hgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <TableView prefHeight="574.0" prefWidth="382.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <columns>
+                <TableColumn maxWidth="140.0" minWidth="-Infinity" prefWidth="40.0" text="Time"/>
+                <TableColumn maxWidth="1.7976931348623157E308" text="Content"/>
+                <TableColumn maxWidth="140.0" minWidth="-Infinity" prefWidth="40.0" text="Category"/>
+            </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+    </children>
+</AnchorPane>
