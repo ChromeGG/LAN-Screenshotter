@@ -12,6 +12,7 @@ public class Logger {
     }
 
     public void addTestLog(){
-        logsList.add(new Log("21:37", "Papor zdeh", LOG_CATEGORIES.INFO));
+        logsList.add(new Log("Papor zdeh", LOG_CATEGORIES.INFO));
+        logsList.add(new Log("Zaasdor zdeh", LOG_CATEGORIES.ERROR));
     }
 }

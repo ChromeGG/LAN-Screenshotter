@@ -35,17 +35,6 @@ public class LogPaneController {
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         contentColumn.setCellValueFactory(new PropertyValueFactory<>("logContent"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
-
-
-//        System.out.println(logTable.getColumns().contains(timeColumn));
-//        System.out.println(logTable.getColumns().contains(contentColumn));
-//        System.out.println(logTable.getColumns().contains(categoryColumn));
-        //
-//        contentColumn.getColumns(
-//
-//        contentColumn.getColumns().add(timeColumn);
-//        contentColumn.getColumns().add(contentColumn);
-//        contentColumn.getColumns().add(categoryColumn);
     }
 
 }
