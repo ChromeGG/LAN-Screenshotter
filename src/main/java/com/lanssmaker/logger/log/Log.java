@@ -10,4 +10,28 @@ public class Log {
         this.logContent = logContent;
         this.category = category;
     }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getLogContent() {
+        return logContent;
+    }
+
+    public void setLogContent(String logContent) {
+        this.logContent = logContent;
+    }
+
+    public LOG_CATEGORIES getCategory() {
+        return category;
+    }
+
+    public void setCategory(LOG_CATEGORIES category) {
+        this.category = category;
+    }
 }

@@ -13,14 +13,13 @@
                         <VBox prefHeight="574.0" prefWidth="389.0" AnchorPane.bottomAnchor="0.0"
                               AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <fx:include source="connectionPane.fxml"/>
-                                <fx:include source="buttonsPane.fxml"/>
+                                <fx:include fx:id="connectionPane" source="connectionPane.fxml"/>
+                                <fx:include fx:id="buttonsPane" source="buttonsPane.fxml"/>
                             </children>
                         </VBox>
                     </children>
                 </AnchorPane>
-                <fx:include source="logPane.fxml"/>
-
+                <fx:include fx:id="logPane" source="logPane.fxml"/>
             </children>
         </HBox>
     </children>
