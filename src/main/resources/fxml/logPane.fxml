@@ -2,13 +2,13 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane HBox.hgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.lanssmaker.controller.LogPaneController">
+<AnchorPane HBox.hgrow="ALWAYS" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lanssmaker.controller.LogPaneController">
     <children>
-        <TableView prefHeight="574.0" prefWidth="382.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TableView fx:id="logTable" prefHeight="574.0" prefWidth="382.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn maxWidth="140.0" minWidth="-Infinity" prefWidth="40.0" text="Time" />
-                <TableColumn maxWidth="1.7976931348623157E308" text="Content" />
-                <TableColumn maxWidth="140.0" minWidth="-Infinity" prefWidth="40.0" text="Category" />
+                <TableColumn fx:id="timeColumn" maxWidth="140.0" minWidth="70" prefWidth="70.0" text="Time" />
+                <TableColumn fx:id="contentColumn" text="Content" />
+                <TableColumn fx:id="categoryColumn" maxWidth="140.0" minWidth="70" prefWidth="70.0" text="Category" />
             </columns>
             <columnResizePolicy>
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
