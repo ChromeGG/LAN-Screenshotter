@@ -1,5 +1,6 @@
 package com.lanssmaker.main;
 
+import com.lanssmaker.server.SocketServer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -16,7 +17,10 @@ public class Main extends Application {
         Pane mainPane = FXMLLoader.load(getClass().getResource("/fxml/mainPane.fxml"));
         Scene scene = new Scene(mainPane);
         stage.setScene(scene);
-        stage.setTitle("LAN ScreenShots Maker");
+        stage.setTitle("LAN ScreenShots Maker by Adam Tkaczyk");
         stage.show();
+
+        SocketServer server = new SocketServer();
+        server.start();
     }
 }

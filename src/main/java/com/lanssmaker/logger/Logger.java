@@ -1,5 +1,6 @@
 package com.lanssmaker.logger;
 
+
 import com.lanssmaker.logger.log.LOG_CATEGORIES;
 import com.lanssmaker.logger.log.Log;
 import javafx.collections.ObservableList;
@@ -11,8 +12,24 @@ public class Logger {
         this.logsList = logsList;
     }
 
-    public void addTestLog(){
+    public void addTestLog() {
         logsList.add(new Log("Papor zdeh", LOG_CATEGORIES.INFO));
         logsList.add(new Log("Zaasdor zdeh", LOG_CATEGORIES.ERROR));
+        logsList.add(new Log("Papai born", LOG_CATEGORIES.USER_CONNECTED));
+        logsList.add(new Log("Papai rip", LOG_CATEGORIES.USER_DISCONNECTED));
+    }
+
+    public void newClientJoinLog(String clientIP) {
+        StringBuilder logMessage = new StringBuilder();
+        logMessage.append(clientIP);
+        logMessage.append(" connected to server");
+        logsList.add(new Log(logMessage.toString(), LOG_CATEGORIES.USER_CONNECTED));
+    }
+
+    public void clientDisconnected(String clientIP) {
+        StringBuilder logMessage = new StringBuilder();
+        logMessage.append(clientIP);
+        logMessage.append(" disconnected from server");
+        logsList.add(new Log(logMessage.toString(), LOG_CATEGORIES.USER_DISCONNECTED));
     }
 }

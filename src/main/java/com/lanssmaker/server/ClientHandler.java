@@ -4,17 +4,17 @@ import com.lanssmaker.client.Client;
 import javafx.collections.ObservableList;
 
 public class ClientHandler {
-    private ObservableList<Client> songList;
+    private ObservableList<Client> clientList;
 
     public ClientHandler(ObservableList<Client> songList) {
-        this.songList = songList;
+        this.clientList = songList;
     }
 
-    public ObservableList<Client> getSongList() {
-        return songList;
+    public ObservableList<Client> getClientList() {
+        return clientList;
     }
 
-    public void setSongList(ObservableList<Client> songList) {
-        this.songList = songList;
+    public void setClientList(ObservableList<Client> clientList) {
+        this.clientList = clientList;
     }
 }

@@ -12,8 +12,9 @@ public class SocketServer extends Thread {
 
     @Override
     public void run() {
+        System.out.println("SERVER RUNNING");
         prepareServer();
-        startServer();
+//        startServer();
     }
 
     private void prepareServer() {
