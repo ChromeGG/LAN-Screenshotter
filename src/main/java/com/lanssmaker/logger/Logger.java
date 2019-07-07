@@ -19,7 +19,23 @@ public class Logger {
         logsList.add(new Log("Papai rip", LOG_CATEGORIES.USER_DISCONNECTED));
     }
 
-    public void newClientJoinLog(String clientIP) {
+    public void correctServerStart(){
+        logsList.add(new Log("Server started correctly", LOG_CATEGORIES.INFO));
+    }
+
+    public void incorrectServerStart(){
+        logsList.add(new Log("Something goes wrong with server start", LOG_CATEGORIES.ERROR));
+    }
+
+    public void newClientJoin(String clientIP) {
+        StringBuilder logMessage = new StringBuilder();
+        logMessage.append("New client ");
+        logMessage.append(clientIP);
+        logMessage.append(" connected to server");
+        logsList.add(new Log(logMessage.toString(), LOG_CATEGORIES.USER_CONNECTED));
+    }
+
+    public void clientJoin(String clientIP){
         StringBuilder logMessage = new StringBuilder();
         logMessage.append(clientIP);
         logMessage.append(" connected to server");
