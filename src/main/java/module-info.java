@@ -7,4 +7,5 @@ module ssmaker {
     exports com.lanssmaker.main to javafx.graphics;
     opens com.lanssmaker.controller to javafx.fxml;
     opens com.lanssmaker.logger.log to javafx.base;
+    opens com.lanssmaker.connector.client to javafx.base;
 }

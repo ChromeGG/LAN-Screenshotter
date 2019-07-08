@@ -1,6 +1,6 @@
 package com.lanssmaker.controller;
 
-import com.lanssmaker.client.Client;
+import com.lanssmaker.connector.client.Client;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;

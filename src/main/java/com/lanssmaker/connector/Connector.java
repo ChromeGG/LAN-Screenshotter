@@ -1,6 +1,6 @@
 package com.lanssmaker.connector;
 
-import com.lanssmaker.client.Client;
+import com.lanssmaker.connector.client.Client;
 import javafx.collections.ObservableList;
 
 public class Connector {
@@ -11,7 +11,7 @@ public class Connector {
         this.clientsList = clientsList;
     }
 
-    public void connectNewClient(){
+    public void connectNewClient() {
 
     }
 }
