@@ -3,17 +3,13 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.*?>
-<AnchorPane VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lanssmaker.controller.ConnectionPaneController">
+<AnchorPane VBox.vgrow="ALWAYS" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.lanssmaker.controller.ConnectionPaneController">
     <children>
-        <TableView prefHeight="389.0" prefWidth="378.0" AnchorPane.bottomAnchor="0.0"
-                   AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0"
-                   AnchorPane.topAnchor="0.0">
+        <TableView fx:id="connectedClientsTable" prefHeight="389.0" prefWidth="378.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn prefWidth="330.0" text="Clients:"/>
+                <TableColumn fx:id="clientIPColumn" prefWidth="191.0" text="Clients:" />
+            <TableColumn prefWidth="148.0" text="Name:" />
             </columns>
-            <columnResizePolicy>
-                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
-            </columnResizePolicy>
         </TableView>
     </children>
 </AnchorPane>

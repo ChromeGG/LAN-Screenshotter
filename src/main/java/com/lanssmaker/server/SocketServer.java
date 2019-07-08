@@ -1,6 +1,9 @@
 package com.lanssmaker.server;
 
+import com.lanssmaker.connector.Connector;
+import com.lanssmaker.controller.ConnectionPaneController;
 import com.lanssmaker.logger.Logger;
+import javafx.fxml.FXML;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,6 +14,11 @@ import java.net.Socket;
 
 public class SocketServer extends Thread {
     private ServerSocket serverSocket;
+
+    @FXML
+    private ConnectionPaneController connectionPaneController;
+
+    private Connector connector;
     private Logger logger;
 
     @Override
@@ -23,6 +31,8 @@ public class SocketServer extends Thread {
     private void prepareServer() {
         ControlServer controlServer = new ControlServer();
         controlServer.start();
+
+//        logger = connectionPaneController.
     }
 
     private void startServer() {
