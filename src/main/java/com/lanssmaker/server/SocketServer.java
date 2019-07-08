@@ -1,7 +1,5 @@
 package com.lanssmaker.server;
 
-import com.lanssmaker.logger.Logger;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,7 +9,6 @@ import java.net.Socket;
 
 public class SocketServer extends Thread {
     private ServerSocket serverSocket;
-    private Logger logger;
 
     @Override
     public void run() {
@@ -23,6 +20,8 @@ public class SocketServer extends Thread {
     private void prepareServer() {
         ControlServer controlServer = new ControlServer();
         controlServer.start();
+
+
     }
 
     private void startServer() {
