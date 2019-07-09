@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="com.lanssmaker.controller.ButtonsPaneController">
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lanssmaker.controller.ButtonsPaneController">
     <children>
         <GridPane alignment="CENTER" prefHeight="186.0" prefWidth="389.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columnConstraints>
@@ -16,11 +17,15 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
-                <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" text="Button" GridPane.rowIndex="1" />
-                <Button id="dirsButton" fx:id="dirsButton" disable="true" mnemonicParsing="false" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" />
-                <Button id="screenButton" fx:id="screenButton" disable="true" layoutX="82.0" layoutY="91.0" mnemonicParsing="false" />
-                <Button disable="true" mnemonicParsing="false" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" />
-                <Button id="optionsButton" fx:id="optionsButton" mnemonicParsing="false" text="Button" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
+                <Button id="dirsButton" fx:id="dirsButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" />
+                <Button id="screenButton" fx:id="screenButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" />
+                <Button id="thirdButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2">
+               <GridPane.margin>
+                  <Insets />
+               </GridPane.margin></Button>
+                <Button id="optionsButton" fx:id="optionsButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+            <Button id="centerButton" fx:id="screenButton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             </children>
         </GridPane>
     </children>
