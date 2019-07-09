@@ -19,6 +19,10 @@ public class ConnectionPaneController {
     }
 
     private void configureClientsColumns() {
-        clientIPColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
+        clientIPColumn.setCellValueFactory(new PropertyValueFactory<>("clientsList"));
+    }
+
+    public TableView<Client> getConnectedClientsTable() {
+        return connectedClientsTable;
     }
 }

@@ -1,0 +1,18 @@
+/*#dirsButton {*/
+    /*-fx-background-image: url("../img/dirIcon.png");*/
+/*}*/
+
+/*.button,*/
+/*.toggle-button {*/
+    /*-fx-background-repeat: no-repeat;*/
+    /*-fx-background-position: center;*/
+    /*-fx-background-size: 70% 70%;*/
+    /*-fx-background-color: transparent;*/
+    /*-fx-opacity: 40%;*/
+/*}*/
+
+/*.button:hover,*/
+/*.toggle-button:hover,*/
+/*.toggle-button:selected {*/
+    /*-fx-opacity: 100%;*/
+/*}*/
