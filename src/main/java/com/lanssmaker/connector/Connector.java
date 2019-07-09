@@ -11,7 +11,11 @@ public class Connector {
         this.clientsList = clientsList;
     }
 
-    public void connectNewClient() {
+    public void connectNewClient(Client client) {
+        clientsList.add(client);
+    }
 
+    public ObservableList<Client> getClientsList() {
+        return clientsList;
     }
 }
