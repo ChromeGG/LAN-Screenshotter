@@ -48,4 +48,8 @@ public class Logger {
         logMessage.append(" disconnected from server");
         logsList.add(new Log(logMessage.toString(), LOG_CATEGORIES.USER_DISCONNECTED));
     }
+
+    public ObservableList<Log> getLogsList() {
+        return logsList;
+    }
 }

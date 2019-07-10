@@ -1,6 +1,6 @@
 package com.lanssmaker.main;
 
-import com.lanssmaker.connector.client.ClientsThreadsMenager;
+import com.lanssmaker.connector.client.ClientsThreadsHandler;
 import com.lanssmaker.server.SocketServer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -15,7 +15,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        ClientsThreadsMenager.getInstance().setConnectorFromEmptyList();
+        ClientsThreadsHandler.getInstance().setConnectorFromEmptyList();
 
         SocketServer server = new SocketServer();
         server.start();

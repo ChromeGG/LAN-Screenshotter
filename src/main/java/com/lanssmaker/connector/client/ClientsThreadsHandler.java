@@ -4,19 +4,19 @@ import com.lanssmaker.connector.Connector;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-public class ClientsThreadsMenager {
-    private static ClientsThreadsMenager INSTANCE;
+public class ClientsThreadsHandler {
+    private static ClientsThreadsHandler INSTANCE;
     private Connector connector;
-    private volatile ObservableList<Client> clientObservableList = FXCollections.observableArrayList(); // TU POWINEIN BYC WSTRZYKNIETY  ConnectioPane
+    private volatile ObservableList<Client> clientObservableList = FXCollections.observableArrayList();
 
-    private ClientsThreadsMenager() {
+    private ClientsThreadsHandler() {
     }
 
-    public static ClientsThreadsMenager getInstance() {
+    public static ClientsThreadsHandler getInstance() {
         if (INSTANCE == null) {
-            synchronized (ClientsThreadsMenager.class) {
+            synchronized (ClientsThreadsHandler.class) {
                 if (INSTANCE == null) {
-                    INSTANCE = new ClientsThreadsMenager();
+                    INSTANCE = new ClientsThreadsHandler();
 
                 }
             }
@@ -25,7 +25,7 @@ public class ClientsThreadsMenager {
     }
 
     public void setConnectorFromEmptyList() {
-        this.connector = new Connector(this.clientObservableList);
+        this.connector = new Connector(clientObservableList);
     }
 
     public void add(Client client) {
