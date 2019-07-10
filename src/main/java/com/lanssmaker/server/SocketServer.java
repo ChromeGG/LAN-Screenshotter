@@ -1,7 +1,7 @@
 package com.lanssmaker.server;
 
 import com.lanssmaker.connector.client.Client;
-import com.lanssmaker.connector.client.ClientsThreadsMenager;
+import com.lanssmaker.connector.client.ClientsThreadsHandler;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -71,15 +71,11 @@ public class SocketServer extends Thread {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             System.out.println(clientSocket.getInetAddress().toString());
+
             Client client = new Client(this.getClientSocket(), this.getOut(), this.getIn());
-            ClientsThreadsMenager.getInstance().add(client);
-            System.out.println();
-//            ClientList.getInstance().handlerList.add(this);
-//
-//            String clientIP = clientSocket.getInetAddress().toString();
-//            createDirForClient(clientIP);
-//            System.out.println(getPaintedIp() + " connected");
+            ClientsThreadsHandler.getInstance().add(client);
 
         }
 
@@ -101,12 +97,6 @@ public class SocketServer extends Thread {
                 e.printStackTrace();
             }
         }
-
-//        public String getPaintedIp() {
-//            String paintedIp = Colors.GREEN + clientSocket.getInetAddress() + Colors.RESET;
-//            paintedIp = paintedIp.replace("/", "");
-//            return paintedIp;
-//        }
 
         public Socket getClientSocket() {
             return clientSocket;

@@ -14,12 +14,12 @@ public class ConnectionPaneController {
     @FXML
     private TableColumn<Client, String> clientIPColumn;
 
-    public void initialize(){
+    public void initialize() {
         configureClientsColumns();
     }
 
     private void configureClientsColumns() {
-        clientIPColumn.setCellValueFactory(new PropertyValueFactory<>("clientsList"));
+        clientIPColumn.setCellValueFactory(new PropertyValueFactory<>("ip"));
     }
 
     public TableView<Client> getConnectedClientsTable() {

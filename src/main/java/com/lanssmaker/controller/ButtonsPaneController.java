@@ -15,7 +15,7 @@ public class ButtonsPaneController {
     private Button optionsButton;
 
     @FXML
-    private void initialize(){
+    private void initialize() {
 
     }
 

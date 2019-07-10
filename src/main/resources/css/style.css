@@ -6,6 +6,10 @@
     -fx-background-image: url("../img/folder.png");
 }
 
+#clearButton {
+    -fx-background-image: url("../img/clear.png");
+}
+
 
 #optionsButton {
     -fx-background-image: url("../img/options.png");

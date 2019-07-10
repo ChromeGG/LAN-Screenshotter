@@ -14,7 +14,13 @@ public class Client {
         this.socket = socket;
         this.out = out;
         this.in = in;
-        this.ip = socket.getInetAddress().toString();
+        this.ip = createIP(socket);
+    }
+
+    private String createIP(Socket socket) {
+        StringBuilder ip = new StringBuilder(socket.getInetAddress().toString());
+        ip.deleteCharAt(0);
+        return ip.toString();
     }
 
     public Socket getSocket() {
