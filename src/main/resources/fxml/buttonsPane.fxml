@@ -18,14 +18,13 @@
             </rowConstraints>
             <children>
                 <Button layoutX="10.0" layoutY="29.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.rowIndex="1" />
-                <Button id="dirsButton" fx:id="dirsButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" />
-                <Button id="screenButton" fx:id="screenButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" />
-                <Button id="thirdButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2">
+                <Button id="dirsButton" fx:id="dirsButton" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="1" />
+                <Button id="screenButton" fx:id="screenButton" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" />
+                <Button id="clearButton" fx:id="clearButton" disable="true" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin></Button>
                 <Button id="optionsButton" fx:id="optionsButton" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-            <Button id="centerButton" fx:id="screenButton1" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             </children>
         </GridPane>
     </children>

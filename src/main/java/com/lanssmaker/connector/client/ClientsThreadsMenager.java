@@ -24,11 +24,11 @@ public class ClientsThreadsMenager {
         return INSTANCE;
     }
 
-    public void setConnectorFromEmptyList(){
+    public void setConnectorFromEmptyList() {
         this.connector = new Connector(this.clientObservableList);
     }
 
-    public void add(Client client){
+    public void add(Client client) {
         connector.connectNewClient(client);
     }
 
