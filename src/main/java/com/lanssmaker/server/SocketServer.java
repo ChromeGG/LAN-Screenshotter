@@ -1,7 +1,6 @@
 package com.lanssmaker.server;
 
-import com.lanssmaker.connector.client.Client;
-import com.lanssmaker.connector.client.ClientsThreadsHandler;
+import com.lanssmaker.connector.ThreadsManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -58,6 +57,7 @@ public class SocketServer extends Thread {
         private Socket clientSocket;
         private PrintWriter out;
         private BufferedReader in;
+        public int counter = 0;
 
         public EchoClientHandler(Socket socket) {
             this.clientSocket = socket;
@@ -74,9 +74,7 @@ public class SocketServer extends Thread {
 
             System.out.println(clientSocket.getInetAddress().toString());
 
-            Client client = new Client(this.getClientSocket(), this.getOut(), this.getIn());
-            ClientsThreadsHandler.getInstance().add(client);
-
+            ThreadsManager.addNewThread(this);
         }
 
 //        private void createDirForClient(String clientIP) {
