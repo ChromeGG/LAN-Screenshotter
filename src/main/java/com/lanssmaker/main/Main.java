@@ -8,13 +8,14 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
+    public static boolean IS_RUNNING = true;
+
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
     public void start(Stage stage) throws Exception {
-
 
 
         Pane mainPane = FXMLLoader.load(getClass().getResource("/fxml/mainPane.fxml"));

@@ -28,7 +28,7 @@ public class ThreadsManager {
         Connector.addClient(clientFromThread);
     }
 
-    public void removeDeathThreads(Set<SocketServer.EchoClientHandler> threadsToRemove) {
+    public static void removeDeathThreads(Set<SocketServer.EchoClientHandler> threadsToRemove) {
         threads.removeAll(threadsToRemove);
 
         List<Client> clientsToRemove = new ArrayList<>();

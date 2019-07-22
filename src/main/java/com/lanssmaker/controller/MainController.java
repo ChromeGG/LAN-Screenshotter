@@ -30,6 +30,8 @@ public class MainController {
 //        connectionPaneController.getConnectedClientsTable().setItems(Connector.getClients());
         ObservableList<Client> items = connectionPaneController.getConnectedClientsTable().getItems();
         Connector.setClients(items);
+//        ListProperty<Client> clientListProperty = Connector.configureLists(items);
+//        connectionPaneController.getConnectedClientsTable().itemsProperty().bindBidirectional(clientListProperty);
     }
 
     private void createLogger() {

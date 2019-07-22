@@ -7,7 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 public class Logger {
-    private static  ObservableList<Log> logsList = FXCollections.emptyObservableList();
+    private static ObservableList<Log> logsList = FXCollections.emptyObservableList();
 
     public Logger() {
     }

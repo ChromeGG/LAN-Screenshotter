@@ -1,6 +1,7 @@
 package com.lanssmaker.server;
 
 import com.lanssmaker.connector.ThreadsManager;
+import com.lanssmaker.main.Main;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,7 +33,7 @@ public class SocketServer extends Thread {
             e.printStackTrace();
         }
 
-        while (true) {
+        while (Main.IS_RUNNING) {
             try {
                 new EchoClientHandler(serverSocket.accept()).run();
             } catch (IOException e) {

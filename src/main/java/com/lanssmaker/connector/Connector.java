@@ -3,25 +3,24 @@ package com.lanssmaker.connector;
 import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.logger.Logger;
 import com.lanssmaker.server.SocketServer;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
-import lombok.AllArgsConstructor;
-import lombok.Data;
 
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
 public class Connector {
 
-    private ObservableList<Client> clients;
-
-    private Connector instance;
+    private volatile static ObservableList<Client> clients;
+    private volatile static ListProperty<Client> clientsProperty;
 
     public Connector() {
     }
+
+
 
     public static Client parseThreadToClient(SocketServer.EchoClientHandler clientThread) {
         Socket socket = clientThread.getClientSocket();
@@ -30,24 +29,30 @@ public class Connector {
         return new Client(socket, out, in);
     }
 
-    public void addClient(Client client) {
+    public static void addClient(Client client) {
         clients.add(client);
         Logger.newClientJoin(client.getIp());
     }
 
 
-    public synchronized ObservableList<Client> getClients() {
+    public static synchronized ObservableList<Client> getClients() {
         return clients;
     }
 
-    public void setClients(ObservableList<Client> clients) {
-        this.clients = clients;
+    public static void setClients(ObservableList<Client> clients) {
+        Connector.clients = clients;
     }
 
-    public void removeClients(List<Client> clientsToRemove) {
+    public static void removeClients(List<Client> clientsToRemove) {
         clients.removeAll(clientsToRemove);
         for (Client clientToRemove : clientsToRemove) {
             Logger.clientDisconnected(clientToRemove.getIp());
         }
+    }
+
+    public static ListProperty<Client> configureLists(ObservableList<Client> items) {
+        setClients(items);
+        clientsProperty = new SimpleListProperty<>();
+        return clientsProperty;
     }
 }
