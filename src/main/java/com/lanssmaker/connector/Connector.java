@@ -5,6 +5,7 @@ import com.lanssmaker.logger.Logger;
 import com.lanssmaker.server.SocketServer;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
@@ -19,7 +20,6 @@ public class Connector {
 
     public Connector() {
     }
-
 
 
     public static Client parseThreadToClient(SocketServer.EchoClientHandler clientThread) {
@@ -53,6 +53,12 @@ public class Connector {
     public static ListProperty<Client> configureLists(ObservableList<Client> items) {
         setClients(items);
         clientsProperty = new SimpleListProperty<>();
+        clientsProperty.set(clients);
         return clientsProperty;
     }
+
+    public static void configureYourself() {
+        clients = FXCollections.observableArrayList();
+    }
+
 }

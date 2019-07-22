@@ -37,6 +37,7 @@ public class ThreadsManager {
             Client client = Connector.parseThreadToClient(deathThread);
             clientsToRemove.add(client);
         }
+
         Connector.removeClients(clientsToRemove);
     }
 }
