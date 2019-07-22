@@ -2,12 +2,12 @@ package com.lanssmaker.controller;
 
 import com.lanssmaker.connector.Connector;
 import com.lanssmaker.connector.client.Client;
-import com.lanssmaker.connector.client.ClientsThreadsHandler;
 import com.lanssmaker.logger.Logger;
 import com.lanssmaker.logger.log.Log;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
 
 public class MainController {
 
@@ -20,8 +20,7 @@ public class MainController {
     @FXML
     private ButtonsPaneController buttonsPaneController;
 
-    private Logger logger;
-    private Connector connector;
+    private ListProperty<Client> clientsProperty;
 
     public void initialize() {
         createLogger();
@@ -29,18 +28,17 @@ public class MainController {
     }
 
     private void createConnector() {
-//        ObservableList<Client> clients = connectionPaneController.getConnectedClientsTable().getItems();
-        TableView<Client> clientsTable = connectionPaneController.getConnectedClientsTable();
-        clientsTable.setItems(ClientsThreadsHandler.getInstance().getClientObservableList());
-
-
-        connector = new Connector(ClientsThreadsHandler.getInstance().getClientObservableList());
+        Connector.configureYourself();
+        connectionPaneController.getConnectedClientsTable().setItems(Connector.getClients());
+        clientsProperty = new SimpleListProperty<>();
+        clientsProperty.set(Connector.getClients());
+        connectionPaneController.getConnectedClientsTable().itemsProperty().bindBidirectional(clientsProperty);
     }
 
     private void createLogger() {
         ObservableList<Log> logsList = logPaneController.getLogTable().getItems();
-        logger = new Logger(logsList);
-        logger.addTestLog();
+        Logger.setLogsList(logsList);
+        Logger.addTestLog();
     }
 
 }

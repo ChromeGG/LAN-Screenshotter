@@ -3,6 +3,7 @@ package com.lanssmaker.connector.client;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.Objects;
 
 public class Client {
     private Socket socket;
@@ -37,5 +38,21 @@ public class Client {
 
     public String getIp() {
         return ip;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Client client = (Client) o;
+        return Objects.equals(socket, client.socket) &&
+                Objects.equals(out, client.out) &&
+                Objects.equals(in, client.in) &&
+                Objects.equals(ip, client.ip);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(socket, out, in, ip);
     }
 }

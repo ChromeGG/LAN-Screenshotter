@@ -3,6 +3,7 @@ module ssmaker {
     requires javafx.controls;
     requires javafx.media;
     requires javafx.fxml;
+//    requires lombok;
 
     exports com.lanssmaker.main to javafx.graphics;
     opens com.lanssmaker.controller to javafx.fxml;
