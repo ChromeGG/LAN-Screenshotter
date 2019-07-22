@@ -3,8 +3,6 @@ package com.lanssmaker.connector;
 import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.logger.Logger;
 import com.lanssmaker.server.SocketServer;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -16,7 +14,6 @@ import java.util.List;
 public class Connector {
 
     private volatile static ObservableList<Client> clients;
-    private volatile static ListProperty<Client> clientsProperty;
 
     public Connector() {
     }
@@ -48,13 +45,6 @@ public class Connector {
         for (Client clientToRemove : clientsToRemove) {
             Logger.clientDisconnected(clientToRemove.getIp());
         }
-    }
-
-    public static ListProperty<Client> configureLists(ObservableList<Client> items) {
-        setClients(items);
-        clientsProperty = new SimpleListProperty<>();
-        clientsProperty.set(clients);
-        return clientsProperty;
     }
 
     public static void configureYourself() {
