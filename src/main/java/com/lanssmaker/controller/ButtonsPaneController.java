@@ -49,10 +49,4 @@ public class ButtonsPaneController {
     public Button getOptionsButton() {
         return optionsButton;
     }
-
-    public void makeControlsButtonEnabled() {
-        screenButton.setDisable(false);
-        dirsButton.setDisable(false);
-        clearButton.setDisable(false);
-    }
 }

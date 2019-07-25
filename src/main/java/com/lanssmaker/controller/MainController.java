@@ -5,6 +5,7 @@ import com.lanssmaker.connector.Connector;
 import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.logger.Logger;
 import com.lanssmaker.logger.log.Log;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
@@ -36,15 +37,29 @@ public class MainController {
 
     private void configureConnectionPaneClick() {
         TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
-        TableView.TableViewFocusModel<Client> focusModel = connectionPaneController.getConnectedClientsTable().getFocusModel();
+
+        buttonsPaneController.getScreenButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getItems()));
+        buttonsPaneController.getDirsButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getItems()));
+        buttonsPaneController.getClearButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getItems()));
 
         connectionTable.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-            TablePosition tablePosition = connectionTable.getSelectionModel().getSelectedCells().get(0);
-            int row = tablePosition.getRow();
-            Client client = connectionTable.getItems().get(row);
-            ClientsEventsManager.setCurrentSelectedClient(client);
-            buttonsPaneController.makeControlsButtonEnabled();
+            try {
+                TablePosition tablePosition = connectionTable.getSelectionModel().getSelectedCells().get(0);
+                int row = tablePosition.getRow();
+                Client client = connectionTable.getItems().get(row);
+                ClientsEventsManager.setCurrentSelectedClient(client);
+//                buttonsPaneController.setControlsButtonEnabled();
+            } catch (IndexOutOfBoundsException e){
+                //ignore
+            }
         });
+
+
+//        connectionTable.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+//            if (Bindings.isEmpty(connectionTable.getItems()).get()){
+//                buttonsPaneController.setControlsButtonDisabled();
+//            }
+//        });
     }
 
 
