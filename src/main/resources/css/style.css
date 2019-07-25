@@ -1,4 +1,3 @@
-
 /*Buttons Pane CSS*/
 
 #screenButton {
@@ -22,7 +21,6 @@
 .toggle-button {
     -fx-background-repeat: no-repeat;
     -fx-background-position: center;
-    /*-fx-background-size: 70% 70%;*/
     -fx-background-color: transparent;
     -fx-opacity: 40%;
 }
@@ -34,15 +32,15 @@
 }
 
 
-
 /*Log Pane CSS*/
-#timeCol{
+#timeCol {
     -fx-alignment: CENTER;
 }
 
 #categoryCol {
     -fx-alignment: CENTER;
 }
+
 
 /*Connection Pane CSS*/
 #clientIPColumn {

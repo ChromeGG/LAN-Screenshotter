@@ -4,6 +4,9 @@ package com.lanssmaker.clientEventsManager;
 import com.lanssmaker.clientEventsManager.fileManager.FileManager;
 import com.lanssmaker.clientEventsManager.screenshooter.ScreenShotter;
 import com.lanssmaker.connector.client.Client;
+import org.apache.commons.io.FileUtils;
+
+import java.io.File;
 
 public class ClientsEventsManager {
     private static Client currentSelectedClient;
@@ -27,5 +30,23 @@ public class ClientsEventsManager {
 
     public void showClientDir() {
         fileManager.showDir(currentSelectedClient);
+    }
+
+    public void removeData() {
+//        File clientFolder = new File("local/" + getCurrentSelectedClient().getIp());
+
+
+        File folder = new File("local/screenshots/" + getCurrentSelectedClient().getIp());
+        File[] fList = folder.listFiles();
+
+
+        if (fList != null) {
+            for (File f : fList) {
+                if (f.getName().endsWith(".jpg")) {
+                    FileUtils.deleteQuietly(f);
+                }
+            }
+        }
+
     }
 }

@@ -2,11 +2,14 @@ package com.lanssmaker.controller;
 
 import com.lanssmaker.clientEventsManager.ClientsEventsManager;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.Optional;
 
 public class ButtonsPaneController {
 
@@ -28,10 +31,26 @@ public class ButtonsPaneController {
     private void initialize() {
         configureScreenButton();
         configureDirsButton();
+        configureClearButton();
+    }
+
+    private void configureClearButton() {
+        clearButton.setOnAction(event -> {
+            Alert alert = new Alert(Alert.AlertType.WARNING,
+                    "Are you sure to remove all screenshot for " + ClientsEventsManager.getCurrentSelectedClient().getIp()+ "?",
+                    ButtonType.YES, ButtonType.NO);
+
+            Optional<ButtonType> result = alert.showAndWait();
+            if (result.get() == ButtonType.YES){
+                System.out.println("YES Option");
+                clientsEventsManager.removeData();
+            } else {
+                //do nothing
+            }
+        });
     }
 
     private void configureDirsButton() {
-
         dirsButton.setOnAction(event -> {
             String dirName = "local/screenshots/";
             dirName += ClientsEventsManager.getCurrentSelectedClient().getIp();

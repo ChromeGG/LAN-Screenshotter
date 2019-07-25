@@ -36,13 +36,7 @@ public class MainController {
         configureButtons();
     }
 
-    private void configureButtons() {
-        TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
 
-        buttonsPaneController.getScreenButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
-        buttonsPaneController.getDirsButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
-        buttonsPaneController.getClearButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
-    }
 
     private void configureConnectionPaneClick() {
         TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
@@ -57,13 +51,6 @@ public class MainController {
                 //ignore
             }
         });
-
-
-//        connectionTable.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
-//            if (Bindings.isEmpty(connectionTable.getItems()).get()){
-//                buttonsPaneController.setControlsButtonDisabled();
-//            }
-//        });
     }
 
 
@@ -79,6 +66,14 @@ public class MainController {
         ObservableList<Log> logsList = logPaneController.getLogTable().getItems();
         Logger.setLogsList(logsList);
         Logger.addTestLog();
+    }
+
+    private void configureButtons() {
+        TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
+
+        buttonsPaneController.getScreenButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
+        buttonsPaneController.getDirsButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
+        buttonsPaneController.getClearButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
     }
 
 }
