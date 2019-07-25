@@ -33,14 +33,19 @@ public class MainController {
         createLogger();
         createConnector();
         configureConnectionPaneClick();
+        configureButtons();
+    }
+
+    private void configureButtons() {
+        TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
+
+        buttonsPaneController.getScreenButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
+        buttonsPaneController.getDirsButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
+        buttonsPaneController.getClearButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
     }
 
     private void configureConnectionPaneClick() {
         TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
-
-        buttonsPaneController.getScreenButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getItems()));
-        buttonsPaneController.getDirsButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getItems()));
-        buttonsPaneController.getClearButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getItems()));
 
         connectionTable.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
             try {
@@ -48,7 +53,6 @@ public class MainController {
                 int row = tablePosition.getRow();
                 Client client = connectionTable.getItems().get(row);
                 ClientsEventsManager.setCurrentSelectedClient(client);
-//                buttonsPaneController.setControlsButtonEnabled();
             } catch (IndexOutOfBoundsException e){
                 //ignore
             }

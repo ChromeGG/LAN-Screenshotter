@@ -24,4 +24,8 @@ public class ClientsEventsManager {
     public static void setCurrentSelectedClient(Client currentSelectedClient) {
         ClientsEventsManager.currentSelectedClient = currentSelectedClient;
     }
+
+    public void showClientDir() {
+        fileManager.showDir(currentSelectedClient);
+    }
 }

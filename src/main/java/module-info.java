@@ -4,6 +4,7 @@ module ssmaker {
     requires javafx.media;
     requires javafx.fxml;
     requires org.apache.commons.io;
+    requires java.desktop;
 //    requires lombok;
 
     exports com.lanssmaker.main to javafx.graphics;

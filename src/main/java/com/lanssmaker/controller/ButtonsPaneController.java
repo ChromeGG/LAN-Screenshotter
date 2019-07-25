@@ -3,7 +3,10 @@ package com.lanssmaker.controller;
 import com.lanssmaker.clientEventsManager.ClientsEventsManager;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.input.MouseEvent;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class ButtonsPaneController {
 
@@ -23,15 +26,38 @@ public class ButtonsPaneController {
 
     @FXML
     private void initialize() {
-        configureEventsToButtons();
+        configureScreenButton();
+        configureDirsButton();
     }
 
-    private void configureEventsToButtons() {
-        screenButton.addEventFilter(MouseEvent.MOUSE_CLICKED, event -> {
-            if (event.getClickCount() == 1) {
-                clientsEventsManager.makeSS();
+    private void configureDirsButton() {
+
+        dirsButton.setOnAction(event -> {
+//            FileChooser fc = new FileChooser();
+//            fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("jpg", "*.jpg"));
+//            File file = new File("local/screenshots/" + ClientsEventsManager.getCurrentSelectedClient().getIp());
+//            fc.setInitialDirectory(file);
+//            File file1 = fc.showOpenDialog(new Stage());
+//            try {
+//                Desktop.getDesktop().open(file1);
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+            String dirName = "local/screenshots/";
+            dirName += ClientsEventsManager.getCurrentSelectedClient().getIp();
+            File file = new File(dirName);
+            try {
+                Desktop.getDesktop().open(file);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
         });
+    }
+
+    private void configureScreenButton() {
+        screenButton.setOnAction(event -> clientsEventsManager.makeSS());
+
+
     }
 
     public Button getDirsButton() {

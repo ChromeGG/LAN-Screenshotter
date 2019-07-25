@@ -1,5 +1,7 @@
 package com.lanssmaker.clientEventsManager.fileManager;
 
+import com.lanssmaker.connector.client.Client;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,5 +14,9 @@ public class FileManager {
         dateString = dateString.replaceAll("/", "-");
         dateString = dateString.replaceAll(":", ";");
         return dateString;
+    }
+
+    public void showDir(Client currentSelectedClient) {
+
     }
 }
