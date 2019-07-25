@@ -1,5 +1,6 @@
 package com.lanssmaker.server;
 
+import com.lanssmaker.clientEventsManager.screenshooter.ScreenShotter;
 import com.lanssmaker.connector.ThreadsManager;
 import com.lanssmaker.main.Main;
 
@@ -37,7 +38,13 @@ public class ControlServer extends Thread {
             clientThread.getOut().println("2");
             try {
                 if (clientThread.getIn().ready()) {
-                    System.out.println("Odczyt z " + clientThread.getIn().readLine());
+                    String input = clientThread.getIn().readLine();
+                    if (input.length() <= 100) {
+                        System.out.println("Odczyt z " + input);
+                    } else {
+                        System.out.println("Recive a SS in Control Thread");
+                        ScreenShotter.receiveScreenFromControlThread(input, clientThread.getClientSocket().getInetAddress().toString());
+                    }
                     clientThread.counter = 0;
                 } else {
                     clientThread.counter++;

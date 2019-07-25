@@ -19,6 +19,10 @@ public class Logger {
         logsList.add(new Log("Papai rip", LOG_CATEGORIES.USER_DISCONNECTED));
     }
 
+    public static void screenshotMaked(String inetAddress) {
+        logsList.add(new Log("Screenshot on " + inetAddress + " maked!", LOG_CATEGORIES.INFO));
+    }
+
     public void correctServerStart() {
         logsList.add(new Log("Server started correctly", LOG_CATEGORIES.INFO));
     }

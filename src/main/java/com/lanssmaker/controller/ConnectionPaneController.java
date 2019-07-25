@@ -15,7 +15,12 @@ public class ConnectionPaneController {
     private TableColumn<Client, String> clientIPColumn;
 
     public void initialize() {
+        configureTable();
         configureClientsColumns();
+    }
+
+    private void configureTable() {
+        connectedClientsTable.getSelectionModel().setCellSelectionEnabled(true);
     }
 
     private void configureClientsColumns() {
