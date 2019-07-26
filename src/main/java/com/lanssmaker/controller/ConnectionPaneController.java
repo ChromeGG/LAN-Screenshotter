@@ -14,7 +14,8 @@ public class ConnectionPaneController {
     @FXML
     private TableColumn<Client, String> clientIPColumn;
 
-    public void initialize() {
+    @FXML
+    private void initialize() {
         configureTable();
         configureClientsColumns();
     }

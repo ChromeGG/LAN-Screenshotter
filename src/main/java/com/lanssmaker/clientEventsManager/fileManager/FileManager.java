@@ -1,7 +1,5 @@
 package com.lanssmaker.clientEventsManager.fileManager;
 
-import com.lanssmaker.connector.client.Client;
-
 import java.io.File;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -25,11 +23,7 @@ public class FileManager {
                 System.out.println("Directories: " + strManyDirectories + " created");
             }
         } catch (Exception e) {
-                System.err.println(e.getMessage());
+            System.err.println(e.getMessage());
         }
-    }
-
-    public void showDir(Client currentSelectedClient) {
-
     }
 }

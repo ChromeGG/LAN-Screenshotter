@@ -1,5 +1,4 @@
 /*Buttons Pane CSS*/
-
 #screenButton {
     -fx-background-image: url("../img/screen.png");
 }
@@ -31,7 +30,6 @@
     -fx-opacity: 100%;
 }
 
-
 /*Log Pane CSS*/
 #timeCol {
     -fx-alignment: CENTER;
@@ -45,4 +43,17 @@
 /*Connection Pane CSS*/
 #clientIPColumn {
     -fx-alignment: CENTER;
+}
+
+/*About Pane CSS*/
+#bugButton {
+    -fx-background-image: url("../img/bug.png");
+}
+
+#sourceButton {
+    -fx-background-image: url("../img/source.png");
+}
+
+#manualButton {
+    -fx-background-image: url("../img/help.png");
 }

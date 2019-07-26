@@ -21,13 +21,8 @@ public class LogPaneController {
     @FXML
     private TableColumn<Log, LOG_CATEGORIES> categoryColumn;
 
-
-    public TableView<Log> getLogTable() {
-        return logTable;
-    }
-
-
-    public void initialize() {
+    @FXML
+    private void initialize() {
         configureLogTableColumns();
     }
 
@@ -35,6 +30,10 @@ public class LogPaneController {
         timeColumn.setCellValueFactory(new PropertyValueFactory<>("time"));
         contentColumn.setCellValueFactory(new PropertyValueFactory<>("logContent"));
         categoryColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+    }
+
+    public TableView<Log> getLogTable() {
+        return logTable;
     }
 
 }

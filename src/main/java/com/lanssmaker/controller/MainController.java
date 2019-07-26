@@ -29,13 +29,13 @@ public class MainController {
 
     private ClientsEventsManager clientsEventsManager = new ClientsEventsManager();
 
-    public void initialize() {
+    @FXML
+    private void initialize() {
         createLogger();
         createConnector();
         configureConnectionPaneClick();
         configureButtons();
     }
-
 
 
     private void configureConnectionPaneClick() {
@@ -47,7 +47,7 @@ public class MainController {
                 int row = tablePosition.getRow();
                 Client client = connectionTable.getItems().get(row);
                 ClientsEventsManager.setCurrentSelectedClient(client);
-            } catch (IndexOutOfBoundsException e){
+            } catch (IndexOutOfBoundsException e) {
                 //ignore
             }
         });
