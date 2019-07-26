@@ -20,7 +20,7 @@ public class ControlServer extends Thread {
         boolean close = false;
         while (Main.IS_RUNNING) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 checkConnections();
             } catch (InterruptedException e) {
                 e.printStackTrace();

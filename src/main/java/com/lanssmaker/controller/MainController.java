@@ -65,6 +65,7 @@ public class MainController {
     private void createLogger() {
         ObservableList<Log> logsList = logPaneController.getLogTable().getItems();
         Logger.setLogsList(logsList);
+        Logger.welcomeLog();
         Logger.addTestLog();
     }
 

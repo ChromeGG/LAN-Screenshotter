@@ -1,5 +1,6 @@
 package com.lanssmaker.connector;
 
+import com.lanssmaker.clientEventsManager.fileManager.FileManager;
 import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.logger.Logger;
 import com.lanssmaker.server.SocketServer;
@@ -28,6 +29,7 @@ public class Connector {
 
     public static void addClient(Client client) {
         clients.add(client);
+        FileManager.createClientFolder(client.getIp());
         Logger.newClientJoin(client.getIp());
     }
 

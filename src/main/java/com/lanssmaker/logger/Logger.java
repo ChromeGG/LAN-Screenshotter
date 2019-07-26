@@ -23,6 +23,14 @@ public class Logger {
         logsList.add(new Log("Screenshot on " + inetAddress + " maked!", LOG_CATEGORIES.INFO));
     }
 
+    public static void clientDataRemoved(String ip) {
+        logsList.add(new Log("Screenshots from " + ip + " removed", LOG_CATEGORIES.INFO));
+    }
+
+    public static void welcomeLog() {
+        logsList.add(new Log("Welcome in LAN Screenshotter by Adam Tkaczyk. Have fun!", LOG_CATEGORIES.INFO));
+    }
+
     public void correctServerStart() {
         logsList.add(new Log("Server started correctly", LOG_CATEGORIES.INFO));
     }
