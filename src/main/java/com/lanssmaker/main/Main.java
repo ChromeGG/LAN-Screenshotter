@@ -2,6 +2,7 @@ package com.lanssmaker.main;
 
 import com.lanssmaker.server.SocketServer;
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
@@ -24,7 +25,12 @@ public class Main extends Application {
         stage.setTitle("LAN Screenshotter");
         stage.show();
 
-        SocketServer server = new SocketServer();
+        stage.setOnCloseRequest(e -> {
+            Platform.exit();
+            System.exit(0);
+        });
+
+            SocketServer server = new SocketServer();
         server.start();
+        }
     }
-}

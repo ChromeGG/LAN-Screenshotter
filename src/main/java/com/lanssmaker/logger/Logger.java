@@ -31,17 +31,9 @@ public class Logger {
         logsList.add(new Log("Welcome in LAN Screenshotter by Adam Tkaczyk. Have fun!", LOG_CATEGORIES.INFO));
     }
 
-    public void correctServerStart() {
-        logsList.add(new Log("Server started correctly", LOG_CATEGORIES.INFO));
-    }
-
-    public void incorrectServerStart() {
-        logsList.add(new Log("Something goes wrong with server start", LOG_CATEGORIES.ERROR));
-    }
-
     public static void newClientJoin(String clientIP) {
         StringBuilder logMessage = new StringBuilder();
-        logMessage.append("New client ");
+        logMessage.append("Client ");
         logMessage.append(clientIP);
         logMessage.append(" connected to server");
         logsList.add(new Log(logMessage.toString(), LOG_CATEGORIES.USER_CONNECTED));
