@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -23,6 +24,7 @@ public class Main extends Application {
         Scene scene = new Scene(mainPane);
         stage.setScene(scene);
         stage.setTitle("LAN Screenshotter");
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.png")));
         stage.show();
 
         stage.setOnCloseRequest(e -> {
@@ -30,7 +32,7 @@ public class Main extends Application {
             System.exit(0);
         });
 
-            SocketServer server = new SocketServer();
+        SocketServer server = new SocketServer();
         server.start();
-        }
     }
+}
