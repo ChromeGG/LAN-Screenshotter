@@ -18,7 +18,7 @@ public class Client {
         this.ip = createIP(socket);
     }
 
-    private String createIP(Socket socket) {
+    public static String createIP(Socket socket) {
         StringBuilder ip = new StringBuilder(socket.getInetAddress().toString());
         ip.deleteCharAt(0);
         return ip.toString();

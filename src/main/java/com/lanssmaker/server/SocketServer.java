@@ -42,10 +42,6 @@ public class SocketServer extends Thread {
         }
     }
 
-    public ServerSocket getServerSocket() {
-        return serverSocket;
-    }
-
     public void stopServer() {
         try {
             serverSocket.close();
@@ -53,6 +49,11 @@ public class SocketServer extends Thread {
             e.printStackTrace();
         }
     }
+
+    public ServerSocket getServerSocket() {
+        return serverSocket;
+    }
+
 
     public class EchoClientHandler extends Thread {
         private Socket clientSocket;
@@ -72,19 +73,7 @@ public class SocketServer extends Thread {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-
-            System.out.println(clientSocket.getInetAddress().toString());
-
             ThreadsManager.addNewThread(this);
-        }
-
-//        private void createDirForClient(String clientIP) {
-//            DirectoryCreator directoryCreator = new DirectoryCreator();
-//            directoryCreator.prepareDirs(clientIP);
-//        }
-
-        public void sendInstruction(int instruction) {
-            out.println(instruction);
         }
 
         public void close() {

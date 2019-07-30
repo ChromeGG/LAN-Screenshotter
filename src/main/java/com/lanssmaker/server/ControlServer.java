@@ -1,6 +1,8 @@
 package com.lanssmaker.server;
 
+import com.lanssmaker.clientEventsManager.screenshooter.ScreenShotter;
 import com.lanssmaker.connector.ThreadsManager;
+import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.main.Main;
 
 import java.io.IOException;
@@ -15,10 +17,9 @@ public class ControlServer extends Thread {
     }
 
     private void startControl() {
-        boolean close = false;
         while (Main.IS_RUNNING) {
             try {
-                Thread.sleep(3000);
+                Thread.sleep(2000);
                 checkConnections();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -31,13 +32,14 @@ public class ControlServer extends Thread {
         Set<SocketServer.EchoClientHandler> threadsToRemove = new HashSet<>();
 
 
-        System.out.println("Sprawdzam");
-
         for (SocketServer.EchoClientHandler clientThread : threads) {
             clientThread.getOut().println("2");
             try {
                 if (clientThread.getIn().ready()) {
-                    System.out.println("Odczyt z " + clientThread.getIn().readLine());
+                    String input = clientThread.getIn().readLine();
+                    if (input.length() >= 100) {
+                        ScreenShotter.receiveScreenFromControlThread(input, Client.createIP(clientThread.getClientSocket()));
+                    }
                     clientThread.counter = 0;
                 } else {
                     clientThread.counter++;

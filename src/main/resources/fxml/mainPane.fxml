@@ -1,21 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.*?>
-<AnchorPane stylesheets="@../css/style.css" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="813.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lanssmaker.controller.MainController">
+<AnchorPane stylesheets="@../css/style.css" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308"
+            minHeight="-Infinity" minWidth="-Infinity" prefHeight="624.0" prefWidth="813.0"
+            xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lanssmaker.controller.MainController">
     <children>
-        <HBox layoutX="158.0" layoutY="143.0" prefHeight="624.0" prefWidth="813.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+        <HBox layoutX="158.0" layoutY="143.0" prefHeight="624.0" prefWidth="813.0" AnchorPane.bottomAnchor="25.0"
+              AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
             <children>
                 <AnchorPane HBox.hgrow="NEVER">
                     <children>
-                        <VBox prefHeight="574.0" prefWidth="389.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
+                        <VBox prefHeight="574.0" prefWidth="389.0" AnchorPane.bottomAnchor="0.0"
+                              AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <fx:include fx:id="connectionPane" source="connectionPane.fxml" />
-                                <fx:include fx:id="buttonsPane" source="buttonsPane.fxml" />
+                                <fx:include fx:id="connectionPane" source="connectionPane.fxml"/>
+                                <fx:include fx:id="buttonsPane" source="buttonsPane.fxml"/>
                             </children>
                         </VBox>
                     </children>
                 </AnchorPane>
-                <fx:include fx:id="logPane" source="logPane.fxml" />
+                <fx:include fx:id="logPane" source="logPane.fxml"/>
             </children>
         </HBox>
     </children>

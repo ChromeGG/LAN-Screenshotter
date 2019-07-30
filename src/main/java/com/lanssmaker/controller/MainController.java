@@ -1,13 +1,18 @@
 package com.lanssmaker.controller;
 
+import com.lanssmaker.clientEventsManager.ClientsEventsManager;
 import com.lanssmaker.connector.Connector;
 import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.logger.Logger;
 import com.lanssmaker.logger.log.Log;
+import javafx.beans.binding.Bindings;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.TablePosition;
+import javafx.scene.control.TableView;
+import javafx.scene.input.MouseEvent;
 
 public class MainController {
 
@@ -22,10 +27,30 @@ public class MainController {
 
     private ListProperty<Client> clientsProperty;
 
-    public void initialize() {
+    @FXML
+    private void initialize() {
         createLogger();
         createConnector();
+        configureConnectionPaneClick();
+        configureButtons();
     }
+
+
+    private void configureConnectionPaneClick() {
+        TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
+
+        connectionTable.addEventHandler(MouseEvent.MOUSE_CLICKED, event -> {
+            try {
+                TablePosition tablePosition = connectionTable.getSelectionModel().getSelectedCells().get(0);
+                int row = tablePosition.getRow();
+                Client client = connectionTable.getItems().get(row);
+                ClientsEventsManager.setCurrentSelectedClient(client);
+            } catch (IndexOutOfBoundsException e) {
+                //ignore
+            }
+        });
+    }
+
 
     private void createConnector() {
         Connector.configureYourself();
@@ -38,7 +63,16 @@ public class MainController {
     private void createLogger() {
         ObservableList<Log> logsList = logPaneController.getLogTable().getItems();
         Logger.setLogsList(logsList);
-        Logger.addTestLog();
+        Logger.welcomeLog();
+//        Logger.addTestLog();
+    }
+
+    private void configureButtons() {
+        TableView<Client> connectionTable = connectionPaneController.getConnectedClientsTable();
+
+        buttonsPaneController.getScreenButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
+        buttonsPaneController.getDirsButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
+        buttonsPaneController.getClearButton().disableProperty().bind(Bindings.isEmpty(connectionTable.getSelectionModel().getSelectedItems()));
     }
 
 }
