@@ -27,8 +27,6 @@ public class MainController {
 
     private ListProperty<Client> clientsProperty;
 
-    private ClientsEventsManager clientsEventsManager = new ClientsEventsManager();
-
     @FXML
     private void initialize() {
         createLogger();
@@ -66,7 +64,7 @@ public class MainController {
         ObservableList<Log> logsList = logPaneController.getLogTable().getItems();
         Logger.setLogsList(logsList);
         Logger.welcomeLog();
-        Logger.addTestLog();
+//        Logger.addTestLog();
     }
 
     private void configureButtons() {

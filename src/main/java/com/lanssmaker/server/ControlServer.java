@@ -17,7 +17,6 @@ public class ControlServer extends Thread {
     }
 
     private void startControl() {
-        boolean close = false;
         while (Main.IS_RUNNING) {
             try {
                 Thread.sleep(2000);
@@ -33,17 +32,12 @@ public class ControlServer extends Thread {
         Set<SocketServer.EchoClientHandler> threadsToRemove = new HashSet<>();
 
 
-        System.out.println("Sprawdzam");
-
         for (SocketServer.EchoClientHandler clientThread : threads) {
             clientThread.getOut().println("2");
             try {
                 if (clientThread.getIn().ready()) {
                     String input = clientThread.getIn().readLine();
-                    if (input.length() <= 100) {
-                        System.out.println("Odczyt z " + input);
-                    } else {
-                        System.out.println("Recive a SS in Control Thread");
+                    if (input.length() >= 100) {
                         ScreenShotter.receiveScreenFromControlThread(input, Client.createIP(clientThread.getClientSocket()));
                     }
                     clientThread.counter = 0;

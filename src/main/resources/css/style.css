@@ -46,6 +46,11 @@
 }
 
 /*About Pane CSS*/
+.copyable-label, .copyable-label:focused {
+    -fx-background-color: transparent ;
+    -fx-background-insets: 0px ;
+}
+
 #bugButton {
     -fx-background-image: url("../img/bug.png");
 }
@@ -56,4 +61,12 @@
 
 #manualButton {
     -fx-background-image: url("../img/help.png");
+}
+
+#gitButton {
+    -fx-background-image: url("../img/git.png");
+}
+
+#emailButton {
+    -fx-background-image: url("../img/email.png");
 }

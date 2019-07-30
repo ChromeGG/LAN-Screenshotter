@@ -39,7 +39,7 @@ public class ScreenShotter {
                 encodedString = client.getIn().readLine();
             }
         } catch (IOException e) {
-            System.out.println("Connection error: Host disconnected from server.");
+            Logger.screenshotError(client.getIp());
         }
 
         try {

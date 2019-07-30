@@ -67,7 +67,6 @@ public class ButtonsPaneController {
 
             Optional<ButtonType> result = alert.showAndWait();
             if (result.get() == ButtonType.YES) {
-                System.out.println("YES Option");
                 clientsEventsManager.removeData();
             } else {
                 //do nothing

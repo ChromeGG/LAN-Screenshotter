@@ -1,7 +1,6 @@
 package com.lanssmaker.clientEventsManager;
 
 
-import com.lanssmaker.clientEventsManager.fileManager.FileManager;
 import com.lanssmaker.clientEventsManager.screenshooter.ScreenShotter;
 import com.lanssmaker.connector.client.Client;
 import com.lanssmaker.logger.Logger;
@@ -12,7 +11,6 @@ import java.io.File;
 public class ClientsEventsManager {
     private static Client currentSelectedClient;
     private ScreenShotter screenShotter = new ScreenShotter();
-    private FileManager fileManager = new FileManager();
 
     public ClientsEventsManager() {
     }
