@@ -1,6 +1,6 @@
 # LAN-Screenshotter
 Simple program with GUI to making screenshot via LAN.
-WORNING: Required Java 12 to run.
+WARNING: Required Java 12 to run.
 
 
 

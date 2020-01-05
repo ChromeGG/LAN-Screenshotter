@@ -12,8 +12,8 @@ public class Logger {
     public Logger() {
     }
 
-    public static void screenshotMaked(String inetAddress) {
-        logsList.add(new Log("Screenshot on " + inetAddress + " maked!", LOG_CATEGORIES.INFO));
+    public static void screenshotTaken(String inetAddress) {
+        logsList.add(new Log(inetAddress + " Screenshot" + " taken!", LOG_CATEGORIES.INFO));
     }
 
     public static void clientDataRemoved(String ip) {

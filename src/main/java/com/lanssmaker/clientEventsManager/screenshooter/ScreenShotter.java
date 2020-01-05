@@ -22,7 +22,7 @@ public class ScreenShotter {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Logger.screenshotMaked(inetAddress);
+        Logger.screenshotTaken(inetAddress);
     }
 
     public void makeSS(Client currentSelectedClient) {
